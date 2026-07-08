@@ -41,14 +41,14 @@ if (!empty($data['id']) && !empty($data['name']) && !empty($data['email']) && !e
         $stmt->bindParam(':id', $id);
 
         if ($stmt->execute()) {
-            echo json_encode(["statut" => "success", "message" => "Utilisateur modifié avec succès"]);
+            echo json_encode(["status" => "success", "message" => "Utilisateur modifié avec succès"]);
         } else {
-            echo json_encode(["statut" => "error", "message" => "Impossible de modifier l'utilisateur"]);
+            echo json_encode(["status" => "error", "message" => "Impossible de modifier l'utilisateur"]);
         }
     } catch (PDOException $e) {
-        echo json_encode(["statut" => "error", "message" => "Erreur SQL : " . $e->getMessage()]);
+        echo json_encode(["status" => "error", "message" => "Erreur SQL : " . $e->getMessage()]);
     }
 } else {
-    echo json_encode(["statut" => "error", "message" => "Données incomplètes"]);
+    echo json_encode(["status" => "error", "message" => "Données incomplètes"]);
 }
 ?>

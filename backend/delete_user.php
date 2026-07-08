@@ -35,14 +35,14 @@ if (!empty($data['id'])) {
         $stmt->bindParam(':id', $id);
 
         if ($stmt->execute()) {
-            echo json_encode(["statut" => "success", "message" => "Utilisateur supprimé avec succès"]);
+            echo json_encode(["status" => "success", "message" => "Utilisateur supprimé avec succès"]);
         } else {
-            echo json_encode(["statut" => "error", "message" => "Impossible de supprimer l'utilisateur"]);
+            echo json_encode(["status" => "error", "message" => "Impossible de supprimer l'utilisateur"]);
         }
     } catch (PDOException $e) {
-        echo json_encode(["statut" => "error", "message" => "Erreur SQL : " . $e->getMessage()]);
+        echo json_encode(["status" => "error", "message" => "Erreur SQL : " . $e->getMessage()]);
     }
 } else {
-    echo json_encode(["statut" => "error", "message" => "ID manquant pour la suppression"]);
+    echo json_encode(["status" => "error", "message" => "ID manquant pour la suppression"]);
 }
 ?>

@@ -24,8 +24,8 @@ try {
 
     // 3. Requête SQL : On récupère les utilisateurs actifs (déjà validés)
     // IMPORTANT : Ajustez "status" ou "statut" selon le nom exact de votre colonne MariaDB
-    $stmt = $pdo->prepare("SELECT id, name, email, role, statut FROM users WHERE statut = :status");
-    $stmt->execute(['status' => 'valide']);
+    $stmt = $pdo->prepare("SELECT id, name, email, role, statut FROM users WHERE statut = :statut");
+    $stmt->execute(['statut' => 'valide']);
     
     $users = $stmt->fetchAll();
 
